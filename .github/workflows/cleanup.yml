@@ -1,0 +1,59 @@
+# GitHub Actions Workflow responsible for cleaning up the Template repository from
+# the template-specific files and configurations. This workflow is supposed to be triggered automatically
+# when a new template-based repository has been created.
+
+name: Template Cleanup
+on:
+  push:
+    branches: [main]
+
+jobs:
+
+  # Run cleaning process only if workflow is triggered by the non-"android-library-template" repository.
+  template-cleanup:
+    name: Template Cleanup
+    runs-on: ubuntu-latest
+    if: github.event.repository.name != 'android-library-template'
+    permissions:
+      contents: write
+    steps:
+
+      # Check out current repository
+      - name: Fetch Sources
+        uses: actions/checkout@v4
+
+      # Cleanup project
+      - name: Cleanup
+        run: |
+          # Prepare variables
+          NAME="${GITHUB_REPOSITORY##*/}"
+          SAFE_NAME=$(echo $NAME | sed 's/[^a-zA-Z0-9]//g' | tr '[:upper:]' '[:lower:]')
+
+          # Replace
+          sed -i "s/stub/$SAFE_NAME/g" $(find . -type f -not -path "**/build/**" -not -path "**/.**")
+          sed -i "s/Stub/$NAME/g" $(find . -type f -not -path "**/build/**" -not -path "**/.**")
+
+          # Move stub
+          mv stub/src/main/kotlin/Stub.kt stub/src/main/kotlin/$NAME.kt
+          mv stub/ $SAFE_NAME
+
+          # Cleanup
+          rm .github/workflows/cleanup.yml
+
+          # Remove leftover empty directories
+          find . -type d -empty -delete
+
+      # Commit modified files
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Template cleanup"
+
+      # Push changes
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
