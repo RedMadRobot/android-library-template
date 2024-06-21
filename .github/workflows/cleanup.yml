@@ -8,7 +8,6 @@ on:
     branches: [main]
 
 jobs:
-
   # Run cleaning process only if workflow is triggered by the non-"android-library-template" repository.
   template-cleanup:
     name: Template Cleanup
@@ -17,7 +16,6 @@ jobs:
     permissions:
       contents: write
     steps:
-
       # Check out current repository
       - name: Fetch Sources
         uses: actions/checkout@v4
@@ -25,23 +23,7 @@ jobs:
       # Cleanup project
       - name: Cleanup
         run: |
-          # Prepare variables
-          NAME="${GITHUB_REPOSITORY##*/}"
-          SAFE_NAME=$(echo $NAME | sed 's/[^a-zA-Z0-9]//g' | tr '[:upper:]' '[:lower:]')
-
-          # Replace
-          sed -i "s/stub/$SAFE_NAME/g" $(find . -type f -not -path "**/build/**" -not -path "**/.**")
-          sed -i "s/Stub/$NAME/g" $(find . -type f -not -path "**/build/**" -not -path "**/.**")
-
-          # Move stub
-          mv stub/src/main/kotlin/Stub.kt stub/src/main/kotlin/$NAME.kt
-          mv stub/ $SAFE_NAME
-
-          # Cleanup
-          rm .github/workflows/cleanup.yml
-
-          # Remove leftover empty directories
-          find . -type d -empty -delete
+          ./cleanup.sh "${GITHUB_REPOSITORY##*/}"
 
       # Commit modified files
       - name: Commit files

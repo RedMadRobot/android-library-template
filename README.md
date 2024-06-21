@@ -39,6 +39,6 @@ For major changes, please open an issue first to discuss what you would like to 
 ## Checklist after repository creation (remove after checked)
 
 - Update developers in [publishing plugin](buildSrc/src/main/kotlin/convention.publishing.gradle.kts)
-- remove `./cleanup.sh TestTemplate` from [main.yml](.github/workflows/main.yml)
+- remove `Cleanup` step from [main.yml](.github/workflows/main.yml)
 
 [license]: ../LICENSE
