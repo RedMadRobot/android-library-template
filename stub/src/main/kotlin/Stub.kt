@@ -1,3 +1,3 @@
-package com.redmadrobot.stub
+package com.redmadrobot.%stub%
 
-public interface Stub
+public interface %Stub%
