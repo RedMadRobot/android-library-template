@@ -42,7 +42,6 @@ dependencies {
 
 ## Contributing
 
-Merge requests are welcome.  
-For major changes, please open an issue first to discuss what you would like to change.
+Read the [Contributing Guide](CONTRIBUTING.md) if you're interested in contribution to the project.
 
 [license]: LICENSE
