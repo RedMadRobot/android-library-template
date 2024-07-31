@@ -1,5 +1,13 @@
 # %Stub%
 
+## Checklist after repository creation
+
+- Update developers in [publishing plugin](buildSrc/src/main/kotlin/convention.publishing.gradle.kts)
+- Remove `Cleanup` step from [main.yml](.github/workflows/main.yml)
+- Update library description in README and in `build.gradle.kts`
+- Update [Usage](#usage) guide
+---
+
 [![License](https://img.shields.io/github/license/RedMadRobot/%Stub%?style=flat-square)][license]
 
 %Stub% and no more spoilers.
@@ -21,7 +29,6 @@ Add the dependency:
 ```groovy
 repositories {
     mavenCentral()
-    google()
 }
 
 dependencies {
@@ -31,14 +38,11 @@ dependencies {
 
 ## Usage
 
+**TODO:** Add usage guide
+
 ## Contributing
 
 Merge requests are welcome.  
 For major changes, please open an issue first to discuss what you would like to change.
 
-## Checklist after repository creation (remove after checked)
-
-- Update developers in [publishing plugin](buildSrc/src/main/kotlin/convention.publishing.gradle.kts)
-- remove `Cleanup` step from [main.yml](.github/workflows/main.yml)
-
-[license]: ../LICENSE
+[license]: LICENSE
