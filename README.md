@@ -6,6 +6,7 @@
 - Remove `Cleanup` step from [main.yml](.github/workflows/main.yml)
 - Update library description in README and in `build.gradle.kts`
 - Update [Usage](#usage) guide
+- Revise the logic in convention-plugins in `buildSrc` and remove everything you don't need
 ---
 
 [![License](https://img.shields.io/github/license/RedMadRobot/%Stub%?style=flat-square)][license]

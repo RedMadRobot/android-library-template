@@ -18,7 +18,8 @@ mavenPublishing {
         }
 
         developers {
-//            developer(id = "coolest id", name = "the best name", email = "awesome email")
+            // TODO: Specify real developer information
+            // developer(id = "github_nickname", name = "Name Surname", email = "n.surname@redmadrobot.com")
         }
 
         setGitHubProject("RedMadRobot/%Stub%")

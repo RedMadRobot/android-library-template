@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     # Release tag format is v[version]
-    # For example: v1.3.5
+    # Example: v1.3.5
     tags: ["v*"]
   pull_request:
     branches: [main]
