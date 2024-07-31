@@ -1,14 +1,5 @@
-import io.gitlab.arturbosch.detekt.*
-
 plugins {
     id("io.gitlab.arturbosch.detekt")
-}
-
-tasks.withType<Detekt>().configureEach {
-    jvmTarget = JavaVersion.VERSION_11.toString()
-}
-tasks.withType<DetektCreateBaselineTask>().configureEach {
-    jvmTarget = JavaVersion.VERSION_11.toString()
 }
 
 dependencies {
