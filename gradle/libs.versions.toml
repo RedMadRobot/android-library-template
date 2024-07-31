@@ -6,7 +6,7 @@ android-gradle-plugin = "8.4.0"
 detekt = "1.23.6"
 gradle-android-cacheFix = "3.0.1"
 gradle-infrastructure = "0.18.1"
-kotlin = "1.9.23"
+kotlin = "2.0.0"
 versionsPlugin = "0.51.0"
 publish-plugin = "0.28.0"
 
