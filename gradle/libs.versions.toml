@@ -3,7 +3,7 @@
 [versions]
 activity = "1.9.0"
 android-gradle-plugin = "8.5.1"
-detekt = "1.23.6"
+detekt = "1.23.7"
 gradle-android-cacheFix = "3.0.1"
 gradle-infrastructure = "0.19.1"
 kotlin = "2.0.0"
