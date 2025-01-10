@@ -2,7 +2,7 @@
 # see https://github.com/RedMadRobot/gradle-version-catalogs.
 [versions]
 activity = "1.9.0"
-android-gradle-plugin = "8.5.1"
+android-gradle-plugin = "8.8.0"
 detekt = "1.23.6"
 gradle-android-cacheFix = "3.0.1"
 gradle-infrastructure = "0.19.1"
